@@ -4,15 +4,17 @@ import Cart from '../UI/Cart';
 import MealItem from './MealItem/MealItem';
 
 const AvailableMeals = () => {
+
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch('https://food-order-app-react-90beb-default-rtdb.firebaseio.com/meals.json');
+      // const response = await fetch('https://food-order-app-react-90beb-default-rtdb.firebaseio.com/meals.json');
+      const response = await fetch('https://foodappnew-4e66a-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json');
       if(!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error('Something went wrong');
       }
       const responseData = await response.json();
       const loadedMeals = [];
